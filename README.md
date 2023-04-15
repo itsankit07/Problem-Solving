@@ -1,5 +1,5 @@
 # Problem-Solving
 Beginner Friendly Solutions.
-All Linked List Questions with Solutions.
+All DSA Questions with Solutions.
 From Brute Force to Optimised Approach.
 
