@@ -1,0 +1,93 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+class Node{
+     
+    public:
+    
+    int data;
+    Node *next;
+
+    Node(int data)
+    {
+        this->data = data;
+        next = NULL;
+    }
+
+};
+
+Node * take_input()
+{
+     int data;
+     cin >> data;
+      
+      Node * head = NULL;
+      Node * tail = NULL;
+
+      while(data!=-1)
+      {
+        Node *newnode = new Node(data);
+        if(head==NULL)
+        {
+            head = newnode;
+            tail = newnode;
+        }
+        else
+        {
+            tail->next = newnode;
+            tail = tail->next;
+        } 
+        cin >> data;
+      }
+        return head;
+}
+
+Node* insertion(Node *head,int data,int i)
+{
+    Node *newnode = new Node(data);
+    Node * temp = head;
+    int count=0;
+    
+    // insertion at head -----
+    if(i==0)
+    {
+        newnode->next = head;
+        head = newnode;
+        return head;
+
+    }
+    //--------insertion at middle or end -------
+    while(temp!=NULL&&count<i-1)
+    {
+        temp = temp->next;
+        count++;
+    }
+    if(temp!=NULL)
+    {
+            newnode->next = temp->next;
+            temp->next = newnode;
+    }
+    return head;
+   
+}
+
+    void print(Node *head)
+{
+    while(head!=NULL)
+    {
+        cout << head->data << " ";
+        head = head->next;
+    }
+}
+
+int main()
+{
+   
+    Node *head = take_input();
+     int data;
+     int i;
+     cin >>data >> i;
+    head = insertion(head,data,i);
+    print(head);
+
+}
